@@ -6,9 +6,9 @@ class Welcome extends Application {
 
 	public function index()
 	{
-		$result = '';
+		$result = 'BEGONE INTERLOPER. YOU HAVE NO POWER HERE.';
 		$oddrow = true;
-		foreach ($this->categories->all() as $category)
+		/*foreach ($this->categories->all() as $category)
 		{
 //			$viewparms = array(
 //				'direction' => ($oddrow ? 'left' : 'right')
@@ -17,7 +17,8 @@ class Welcome extends Application {
 			$category->direction = ($oddrow ? 'left' : 'right');
 			$result .= $this->parser->parse('category-home', $category, true);
 			$oddrow = ! $oddrow;
-		}
+		}*/
+		//$this->data['guardimg'] = "/assets/images/GGuardian.jpeg";
 		$this->data['content'] = $result;
 		$this->render();
 	}
