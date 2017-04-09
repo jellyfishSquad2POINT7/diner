@@ -5,3 +5,5 @@
 
 
 ##Changed Features
+finished backend (JC)
+fixed rest.php (GL)
