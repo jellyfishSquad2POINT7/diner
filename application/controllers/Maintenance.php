@@ -49,7 +49,16 @@
             $this->menu->update($record);
             $this->response(array('ok'), 200);
         }
-
+		
+//	i added	
+		// Handle an incoming POST - add a new menu item
+		function index_post()
+		{
+			$key = $this->get('id');
+			$record = array_merge(array('id' => $key), $_POST);
+			$this->menu->add($record);
+			$this->response(array('ok'), 200);
+		}
         // Handle an incoming POST - add a new menu item
         function item_post()
         {
@@ -79,10 +88,11 @@
         function item_delete()
         {
             $key = $this->get('id');
-            $result = $this->menu->delete($key);
-            if ($result != null)
+			$this->menu->delete($key);
+			$this->response(array('ok'), 200);
+            /*if ($result != null)
                 $this->response($result, 200);
             else
-                $this->response(array('error' => 'Menu item not found!'), 404);        
+                $this->response(array('error' => 'Menu item not found!'), 404);        */
         }
     }

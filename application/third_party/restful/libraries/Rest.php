@@ -70,7 +70,7 @@ class Rest {
     }
 
     //I think if I change all these "$format"s to equal jason, they'll be that by default'
-    public function get($uri, $params = array(), $format = $default_format) {
+    public function get($uri, $params = array(), $format = 'json'){//$default_format) {
         if ($params) {
             $uri .= '?' . (is_array($params) ? http_build_query($params) : $params);
         }
@@ -78,15 +78,15 @@ class Rest {
         return $this->_call('get', $uri, NULL, $format);
     }
 
-    public function post($uri, $params = array(), $format = $default_format) {
+    public function post($uri, $params = array(), $format = 'json'){//$default_format) {
         return $this->_call('post', $uri, $params, $format);
     }
 
-    public function put($uri, $params = array(), $format = $default_format) {
+    public function put($uri, $params = array(), $format = 'json'){//$default_format) {
         return $this->_call('put', $uri, $params, $format);
     }
 
-    public function delete($uri, $params = array(), $format = $default_format) {
+    public function delete($uri, $params = array(), $format = 'json'){//$default_format) {
         return $this->_call('delete', $uri, $params, $format);
     }
 
@@ -109,7 +109,7 @@ class Rest {
         $this->_ci->curl->http_header('Accept-Language', $lang);
     }
 
-    protected function _call($method, $uri, $params = array(), $format = $default_format) {
+    protected function _call($method, $uri, $params = array(), $format = 'json'){//$default_format) {
         if ($format !== NULL) {
             $this->format($format);
         }
@@ -138,7 +138,7 @@ class Rest {
     }
 
     // If a type is passed in that is not supported, use it as a mime type
-    public function format($format = $default_format) {
+    public function format($format = 'json'){//$default_format) {
         if (array_key_exists($format, $this->supported_formats)) {
             $this->format = $format;
             $this->mime_type = $this->supported_formats[$format];

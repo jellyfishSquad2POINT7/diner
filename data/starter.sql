@@ -48,6 +48,7 @@ INSERT INTO `Categories` (`id`, `name`, `description`, `image`) VALUES
 --
 -- Table structure for table `ci_sessions`
 --
+DROP TABLE IF EXISTS `ci_sessions`;
 
 CREATE TABLE `ci_sessions` (
   `id` varchar(128) NOT NULL,
@@ -152,3 +153,10 @@ ALTER TABLE `Orders`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*
+DROP TABLE IF EXISTS `Categories`;
+DROP TABLE IF EXISTS `ci_sessions`;
+
+DROP TABLE IF EXISTS `Orderitems`;
+DROP TABLE IF EXISTS `Orders`;
+*/
